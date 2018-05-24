@@ -6,7 +6,7 @@ const LotteryNumber = function(El, def) {
     this.def = {
         startNumber: 10000,            // 第一次執行的最低基礎數字
         currentStart: null,            // 開始基礎數字
-        addNumber: 10,                 // 每秒累加
+        addNumber: 100,                 // 每秒累加
         updateTime: 3000,              // 動畫每3000毫秒更新一次
         runNumber: 0,                  // 動畫數字
         currentNumber: 0,              // 紀錄當前動畫字
@@ -16,7 +16,7 @@ const LotteryNumber = function(El, def) {
         nowTime: new Date().getTime(), // 當下時間
         isStop: false,                 // 是否停止
         timer: null,                   // 存放 setInterval
-        isActive: false                // 跳動中是否添加active class
+        isActive: true                // 跳動中是否添加active class
     };
 
     // 如果有自訂參數,則調用替換方法
@@ -154,17 +154,17 @@ LotteryNumber.prototype.active = function(isActive) {
 
 // == 調用跳動數字方法
 // base
-const number1 = new LotteryNumber('.n1', {isActive: true})
+const number1 = new LotteryNumber('.n1')
 
 // == 自訂參數
 const number2 = new LotteryNumber('.n2', {
     startNumber: 10000,　　　  // 起始數字
     addNumber: 1350,　　　　 　  // 每秒增長
-    updateTime: 2000,　　　　  // 幾毫秒跳動一次
-    duration: 2000,　　　　　　 // 動畫跳動時間
+    updateTime: 3000,　　　　  // 幾毫秒跳動一次
+    duration: 1500,　　　　　　 // 動畫跳動時間
     decimal: 2,               // 小數點位數
     endTime: false,　　 // 結束跳動時間　
-    isActive: false           // 是否添加active class
+    isActive: true           // 是否添加active class
 })
 
 // == 跳動數字 new prototype版  End ==
